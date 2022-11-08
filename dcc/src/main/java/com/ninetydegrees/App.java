@@ -32,8 +32,17 @@ public class App
     {
         // Initialize array
         Integer[][] arr = {{1, 2, 3}, {4, 5, 6}, {7,8,9}};
+        // Print orginal array
+        System.out.printf("\nOriginal array:");
+        printArray(arr);
         // Declare List for processing
-        System.out.println( "Hello World!" );
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        // Send to function
+        list = arrToList(arr);
+        arr = newArray(list, arr);
+
+        // Test Print
+        
     }
 
     // Take array and put into list
@@ -50,5 +59,35 @@ public class App
         }
         // Return List
         return numList;
+    }
+
+    // Take number list and create new array
+    private static Integer[][] newArray(LinkedList<Integer> list, Integer[][] oldArr){
+        // Create new array with old dimensions
+        Integer[][] newArr = new Integer[oldArr.length][oldArr.length];
+        // Iterate through list and add elements
+        for (int i = oldArr.length - 1 ; i >= 0; i--){
+            // Add elements from list to array of arrays
+            for (int j = 0; j < oldArr.length; j++) {
+                newArr[j][i] = list.getFirst();
+                // Remove element from list
+                list.removeFirst();
+            }
+        }
+        // Return new array
+        return newArr;
+    }
+
+    // Print a graphical array
+    private static void printArray(Integer[][] arr) {
+        // Iterate through array to print it
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (j == 0) {
+                    System.out.printf("\n");
+                }
+                System.out.printf("%d\t", arr[i][j]);
+            }
+        }
     }
 }
