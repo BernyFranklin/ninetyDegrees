@@ -13,6 +13,7 @@ import java.util.LinkedList;
  *  [8, 5, 2]
  *  [9, 6, 3]]
  * 
+ * Notes: N = 3, elements numbered 1-9
  *      original index      90 index
  * 1    0,0                 0,2
  * 2    0,1                 1,2
