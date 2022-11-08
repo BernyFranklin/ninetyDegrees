@@ -30,18 +30,25 @@ public class App
     //Main
     public static void main( String[] args )
     {
+        // Declare N dimension
+        int n = 5;
+        // Set a counter
+        int count = 1;
         // Initialize array
-        Integer[][] arr = {{1, 2, 3}, {4, 5, 6}, {7,8,9}};
+        Integer[][] arr = new Integer[n][n];
+        // Populate array
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = count;
+                count++;
+            }
+        }
         // Print orginal array
         System.out.printf("\nOriginal array:");
         printArray(arr);
-        // Declare List for processing
-        LinkedList<Integer> list = new LinkedList<Integer>();
-        // Send to function
-        list = arrToList(arr);
-        arr = newArray(list, arr);
-
-        // Test Print
+        // Send original to rotateNinetyDegrees and print
+        System.out.printf("\n\nNew array after 90 degree turn:");
+        rotateNinetyDegrees(arr);
         
     }
 
@@ -89,5 +96,17 @@ public class App
                 System.out.printf("%d\t", arr[i][j]);
             }
         }
+    }
+
+    // Master function
+    private static void rotateNinetyDegrees(Integer[][] arr) {
+        // Create list to store nums
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        // Send array to function to populate list
+        list = arrToList(arr);
+        // Send list to new array
+        arr = newArray(list, arr);
+        // Print the new array
+        printArray(arr);
     }
 }
