@@ -32,7 +32,21 @@ public class App
     {
         // Declare N dimension
         int n = 5;
-        // Set a counter
+        // Initialize array
+        Integer[][] arr = new Integer[n][n];
+        // Populate array
+        arr = populateArray(n);
+        // Print orginal array
+        System.out.printf("\nOriginal array:");
+        printArray(arr);
+        // Send original to rotateNinetyDegrees and print
+        System.out.printf("\n\nNew array after 90 degree turn:");
+        rotateNinetyDegrees(arr);
+        
+    }
+
+    // Create array[n][n]
+    private static Integer[][] populateArray(Integer n) {
         int count = 1;
         // Initialize array
         Integer[][] arr = new Integer[n][n];
@@ -43,15 +57,8 @@ public class App
                 count++;
             }
         }
-        // Print orginal array
-        System.out.printf("\nOriginal array:");
-        printArray(arr);
-        // Send original to rotateNinetyDegrees and print
-        System.out.printf("\n\nNew array after 90 degree turn:");
-        rotateNinetyDegrees(arr);
-        
+        return arr;
     }
-
     // Take array and put into list
     private static LinkedList<Integer> arrToList(Integer[][] arr) {
         // Declare list 
@@ -98,7 +105,7 @@ public class App
         }
     }
 
-    // Master function
+    // Master function for prompt
     private static void rotateNinetyDegrees(Integer[][] arr) {
         // Create list to store nums
         LinkedList<Integer> list = new LinkedList<Integer>();
