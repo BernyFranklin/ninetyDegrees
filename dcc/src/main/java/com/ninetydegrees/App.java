@@ -32,7 +32,7 @@ public class App
     public static void main( String[] args )
     {
         // Declare N dimension
-        int n = 5;
+        int n = 15;
         // Initialize array
         Integer[][] arr = new Integer[n][n];
         // Populate array
